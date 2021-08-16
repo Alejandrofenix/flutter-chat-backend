@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocketServer</title>
+    <h1>Acceso Denegado</h1>
+    <script src="socket.io/socket.io.js" ></script>
+    <script>
+        //The client is connected
+        var client = io();
+        client.on('connect', function(){
+            console.log('Server is connected')
+        });
+        //if the Client was disconnected
+        var client = io();
+        client.on('disconnect', function(){
+            console.log('Houston we have a trouble, we lost connection with the Server')
+        });
+        //Emit values
+        client.emit('mensaje',{nombre:'Alejandro'});
+        //Listen  from the SV
+        client.on('mensaje',function(payload){
+            console.log('Escuchando:',payload);
+        })
+        
+      
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
